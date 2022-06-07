@@ -16,18 +16,13 @@
 /**
  * Define a callback as the continuation of a promise
  */
-function promiseCallback(promise, callback, thisArg)
-{
-  if(callback)
-  {
-    function callback2(error, result)
-    {
-      try
-      {
+function promiseCallback(promise, callback, thisArg) {
+  if (callback) {
+    function callback2(error, result) {
+      try {
         return callback.call(thisArg, error, result);
       }
-      catch(exception)
-      {
+      catch (exception) {
         // Show the exception in the console with its full stack trace
         console.trace(exception);
         throw exception;
